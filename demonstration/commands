@@ -1,0 +1,106 @@
+# INSTALL SOME NEW UTILITIES:
+# ===========================
+# To install utilities ON UBUNTU LINUX, one can use the apt-get
+# command. This command is NOT GENERALLY available on other
+# operating systems. The required syntax to install a new utility
+# looks like:
+#
+# $ sudo apt-get install UTILITY-IDENTIFIER
+#
+# NOTE: "sudo" is a special shell command with a name that is
+# short for SuperUserDO. It enables subsequent shell commands to
+# update parts of the Linux filesystem that would normally be
+# write-protected. If you prepend a shell command with "sudo" you
+# may be prompted for a password. Just enter the same password you
+# use to log into Linux when starting the VirtualBox.
+
+# 1) SOURCE-HIGHLIGHT:
+# ====================
+# The source-highlight utility can be used to produce "pretty"
+# terminal output for C++ and Python source code, as well as
+# shell commands and scripts. To install it enter:
+
+sudo apt-get install source-highlight
+
+# The source-highlight utility supports numerous flags. Invoke
+# "man source-highlight" for more information. Among the most
+# important are:
+# -i inputFile		: specifies that "inputFile" should be highlighted.
+# -f outputFormat	: specifies the format that should be used to
+#                   	render the highlighted output. In general, use:
+#                   	-f "esc".
+# -o outputFile        	: specifies the "file" to which the highlighted output
+#    		       	should be written. To write to the terminal, use:
+#			-o "STDOUT" 
+# To test source-highlight, try the following command which highlights
+# the C++ demonstration material from Lecture 5 and pipes the result to
+# the "more" pager utility.
+
+source-highlight -f esc -i -o STDOUT | more
+
+# 2) THE GNU SCIENTIFIC LIBRARY:
+# ==============================
+# The GNU Scientific Library (or GSL) is a software library for numerical
+# computations in applied mathematics and science. The GSL is written in C.
+# Wrappers are available for other programming languages (including Python).
+
+# This command will install the GSL SHARED LIBRARY (named libgsl.so) in the
+# /usr/lib directory.
+sudo apt-get install libgsl0ldbl
+
+# This command will install the GSL HEADER FILES in the /usr/include directory.
+sudo apt-get install libgsl0-dev
+
+
+# CLONING YOUR GITHUB HOMEWORK REPOSITORY:
+# ========================================
+# If you emailed me with your GitHub username, then I have created a new
+# repository on GitHub that you can not only read using git clone, but also
+# update using git push. ONLY YOU AND I have write access to your repository.
+# You will use this repository to submit part of this week's homework and
+# similar repositories will be set up for you to submit your midterm and
+# final projects.
+#
+# The URL for your PERSONAL HOMEWORK REPOSITORY looks like:
+# https://github.com/ISUComputationalPhysics/<FirstName><Surname>Homework.git
+#
+# Where you should replace <FirstName> and <Surname> with appropriate values.
+#
+# 0) IF you had problems with the git pull/push example in Lecture 5 you MAY
+#    need to invoke the following command.
+
+git config --global push.default simple
+
+# 1) Update the local git config to reflect your REAL name and EMAIL.
+
+git config --global user.name "Your Name"
+git config --global user.email "you@iastate.edu"
+
+# 2) Begin working with your new repository by creating a clone in VirtualBox in
+# the /home/computationalphysics/Documents/homework directory.
+
+git clone https://github.com/ISUComputationalPhysics/<FirstName><Surname>Homework.git /home/computationalphysics/Documents/homework
+
+# You will be prompted to enter your GitHub username and password.
+# Enter both to clone the repository.
+
+# 3) Navigate to the freshly cloned working directory.
+
+cd /home/computationalphysics/Documents/homework
+
+# 4) Create a new directory for this week's homework and add a file
+# to that directory.
+
+mkdir lecture6
+echo "Lecture 6 Homework Notes:" > lecture6/notes
+
+# 5) Stage and commit the new directory
+
+git status
+git add lecture6
+git commit -m"Added new directory for Lecture 6 homework"
+
+# 6) Update the remote repository to reflect your local changes.
+
+git push
+
