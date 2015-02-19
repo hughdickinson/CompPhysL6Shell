@@ -33,10 +33,10 @@ sudo apt-get install source-highlight
 #    		       	should be written. To write to the terminal, use:
 #			-o "STDOUT" 
 # To test source-highlight, try the following command which highlights
-# the C++ demonstration material from Lecture 5 and pipes the result to
+# some C++ demonstration material to be covered during this lecture
 # the "more" pager utility.
 
-source-highlight -f esc -i -o STDOUT | more
+source-highlight -f esc -i /home/computationalphysics/Documents/cPlusPlus/lecture5/demonstration/stlIntro.cpp -o STDOUT | more
 
 # 2) THE GNU SCIENTIFIC LIBRARY:
 # ==============================
